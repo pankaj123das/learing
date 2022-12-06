@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        form {
+            text-align: center;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <form action = "#" onsubmit="onsignup(event)">
+        <div class="container">
+          <label><b> Name </b></label>
+          <input type="text" name="username" required>
+      
+          <label><b> Email </b></label>
+          <input type="email" name="psw" required>
+      
+          <label><b> Password </b></label>
+          <input type="password" name="password" required>
+
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+      </form>
+      <ul id = 'listofusers'></ul>
+    <script>
+        function onsignup(event){
+            event.preventDefault();
+            const name = event.target.username.value;
+            const email = event.target.psw.value;
+            const pass = event.target.password.value;
+            //localStorage.setItem('name',name);
+            //localStorage.setItem('email',email);
+            //localStorage.setItem('pass',pass);
+            const obj = {
+                name,
+                email,
+                pass,
+            }
+            localStorage.setItem(obj.email,JSON.stringify(obj))
+            shownewuser(obj)
+        }
+        function shownewuser(user){
+            const parentNode = document.getElementById('listofusers');
+            const childHTML = `<li> ${user.name} - ${user.email} </li>`;
+
+            parentNode.innerHTML = parentNode.innerHTML + childHTML;
+        }
+    </script>
+</body>
+</html>
