@@ -9,6 +9,7 @@
 <body>
     <h1>Prectice javaScript</h1>
     <script>
+        /*
         // call function
         var obj = {num: 2}
         var add = function(a){
@@ -28,6 +29,64 @@
         var bnd = add.bind(obj);
         console.log(bnd(1,2,3));
         console.log('done')
+        */
+
+       // clouser
+       /*
+       function y(){
+        for(let i =1 ; i<6;i++){
+        setTimeout(()=>console.log(i),i*1000)
+        }
+        console.log('doing coding')
+       }
+       y();
+       
+      
+   let x = () => {
+    let a;
+    let con = ()=> {
+        a = 10;
+    }
+    con();
+    let inc = () => {a+=1}
+    let inc2 = () => {a+=2}
+    let dec = () => {a-=1}
+    let geta = () => {return a}
+    return (inc, inc2, geta)
+   }
+*/
+   
+    class student{
+        static count = 0;
+        constructor(name,age,phone,marks){
+            this.name = name;
+            this.age = age;
+            this.phone = phone;
+            this.marks = marks;
+            student.count += 1
+        }
+        static checkeligibility = (obj)=>{
+            if (obj.marks>40){
+                console.log(`${obj.name} is Eligible for college`);
+            } else{
+                console.log(`${obj.name} is Not Eligible for college`);
+            }
+        }
+
+    }
+    let obj1 = new student('Pankaj',23,123456,86)
+    let obj2 = new student('Ashu',26,1456,96)
+    let obj3 = new student('Jagga',25,1256,36)
+    let obj4 = new student('Ankit',21,178556,26)
+    let obj5 = new student('Raj',23,1456,46)
+    let arr = [obj1,obj2,obj3,obj4,obj5]
+    let arr2 = arr.forEach(obj => {
+        return student.checkeligibility(obj)
+    });
+    console.log(arr2)
+    //student.checkeligibility(obj1)
+    //console.log(student.count)
+
     </script>
 </body>
 </html>
