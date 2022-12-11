@@ -15,10 +15,10 @@
     <form action = "#" onsubmit="onsignup(event)">
         <div class="container">
           <label><b> Choose Expence Amount </b></label>
-          <input type="text" name="amount" required>
+          <input id="amount" type="text" name="amount" required>
 
           <label><b> Choose Description </b></label>
-          <input type="text" name="description" required>
+          <input id="description" type="text" name="description" required>
            
           <label for ="category"><b> Choose a Categroy </b></label>
           <select name="category" id="category">
@@ -61,12 +61,12 @@
             })
 
             // show user details
-        function shownewuser(user){
+            function shownewuser(user){
             const parentNode = document.getElementById('listofexpences');
             const childHTML = `<li id=${user.description}> ${user.amount} - ${user.description}-${user.category} 
                 <br>
                 <button onclick = deleteUser('${user.description}')> Delete Expence </button>
-                <button onclick = editUserDetails('${user.description}')> Edit Expence </button>
+                <button onclick = editUserDetails('${user.amount}','${user.description}','${user.category}')> Edit Expence </button>
                 </li>`;
 
             parentNode.innerHTML = parentNode.innerHTML + childHTML;
@@ -92,6 +92,7 @@
             document.getElementById('description').value = description;
             document.getElementById('category').value = category;
             deleteUser(description)
+
 }
 
       </script>
