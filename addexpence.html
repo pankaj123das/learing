@@ -8,6 +8,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -15,12 +16,20 @@
     </style>
 </head>
 <body>
+    <h1 id="headingtotal"></h1>
     <input id="inputamount" type="text"></input>
     <button id ="btncounter">+</button>
     <script>
+
+        // get the heading element
+        const headingEl= document.querySelector("#headingtotal")
+
         // initial value of expence
         let totalExpence = 0;
-    
+        
+        // set the headingelement to total expence
+        headingEl.textContent = totalExpence
+        
         // onbtn click add amount in total ammount
         function addExpence(){
             //read all value from input
@@ -32,6 +41,7 @@
     
             totalExpence = totalExpence + expence
             console.log(totalExpence)
+            headingEl.textContent = totalExpence
         }
 
         // get btn element
