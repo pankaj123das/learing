@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expence</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <input id="inputamount" type="text"></input>
+    <button id ="btncounter">+</button>
+    <script>
+        // initial value of expence
+        let totalExpence = 0;
+    
+        // onbtn click add amount in total ammount
+        function addExpence(){
+            //read all value from input
+            const inputElement = document.querySelector("#inputamount")
+            const textamount = inputElement.value
+            
+            // convert sting to int
+            const expence = parseInt(textamount,10)
+    
+            totalExpence = totalExpence + expence
+            console.log(totalExpence)
+        }
+
+        // get btn element
+        const element = document.querySelector("#btncounter");
+
+        // event lisner
+        element.addEventListener("click",addExpence,false);
+
+    </script>
+</body>
+</html>
